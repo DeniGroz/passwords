@@ -104,10 +104,10 @@ void changecounts(int allcounts[],std::string allstrings[], std::string catmin, 
 
 std::string strengthen(const std::string& password, int& iterat)
 {
-    std::string upper = "EARIOTNSLCUDPMHGBFYWKVXZJQ";
-    std:: string lower = "eariotnslcudpmhgbfywkvxzjq";
-    std:: string digit = "0123456789";
-    std:: string special = "!?*&^%$#@.";
+    std::string upper = "EARIOTNSLCUDPMHGBFYWKVXZJQQqQQ";//third to last
+    std:: string lower = "eariotnslcudpmhgbfywkvxzjQQ";
+    std:: string digit = "0123456799Q9";//second to last
+    std:: string special = ";?*&^%$#Q";//last
 
 
     std::string allstrings[4] = {upper,lower,digit,special};
@@ -127,10 +127,10 @@ std::string strengthen(const std::string& password, int& iterat)
 
     std::string strongerpass = password;
 
-    if(iterat == 0)
-    {
-        cout << "Initial password: " << password << endl;
-    }
+    // if(iterat == 0)
+    // {
+    //     cout << "Initial password: " << password << endl;
+    // }
     
     for(int i = 0; i < password.size(); i++)
     {
@@ -174,22 +174,22 @@ std::string strengthen(const std::string& password, int& iterat)
         int minindex1 = resultmin1.second;
 
 
-        if(iterat == 0)
-        {
-            std::cout <<"counts: upper: "<<upperpas <<" "<< uppercount << " lower: "<<lowerpas<< " " << lowercount <<" digit: "<<digitpas<<" " <<digitcount << " special: "<< specialpas<<" " << specialcount << endl;
-            std::cout << "max str: " << moststr << " min str: " << minstr << endl;
-        }
+        // if(iterat == 0)
+        // {
+        //     std::cout <<"counts: upper: "<<upperpas <<" "<< uppercount << " lower: "<<lowerpas<< " " << lowercount <<" digit: "<<digitpas<<" " <<digitcount << " special: "<< specialpas<<" " << specialcount << endl;
+        //     std::cout << "max str: " << moststr << " min str: " << minstr << endl;
+        // }
 
         char changeletter;
         if(moststr.size() != 0)
         {
-            if(i<moststr.size())
+            if((i<moststr.size()) && ((moststr.size()-1-i) >=0) && (i>=1))
             {
-                changeletter = moststr[i];
+                changeletter = moststr[moststr.size()-1-i];
             }
             else
             {
-                changeletter = moststr[0];
+                changeletter = moststr[0+1];
             }
             
         }
@@ -205,10 +205,10 @@ std::string strengthen(const std::string& password, int& iterat)
 
         // std::string categorymin = findcat(allstrings, minstr);
         // std::string categorymax = findcat(allstrings, moststr);
-        if(iterat == 0)
-        {
-            cout << "category min: " << minindex1 << "category max: " << categorymax << endl;
-        }
+        // if(iterat == 0)
+        // {
+        //     cout << "category min: " << minindex1 << "category max: " << categorymax << endl;
+        // }
 
          if(allstrings[minindex1] == upper)
         {
@@ -283,12 +283,12 @@ std::string strengthen(const std::string& password, int& iterat)
         std::size_t pos = strongerpass.find(changeletter) ;
 
 
-        if(iterat == 0)
-        {
-            std::cout <<"change letter from " << changeletter << " at: "<< strongerpass.find(changeletter) << " to: " << changeletterto << endl;
-            cout << allcounts[0]<< allcounts[1] << allcounts[2]<< allcounts[3] << endl;
+        // if(iterat == 0)
+        // {
+        //     std::cout <<"change letter from " << changeletter << " at: "<< strongerpass.find(changeletter) << " to: " << changeletterto << endl;
+        //     cout << allcounts[0]<< allcounts[1] << allcounts[2]<< allcounts[3] << endl;
 
-        }
+        // }
         
         if(pos != std::string::npos)
         {
@@ -302,10 +302,10 @@ std::string strengthen(const std::string& password, int& iterat)
 
         //strongerpass[strongerpass.find(changeletter)] = changeletterto;
         
-        if(iterat == 0)
-        {
-            cout<< "final password: " << strongerpass << endl;
-        }
+        // if(iterat == 0)
+        // {
+        //     cout<< "final password: " << strongerpass << endl;
+        // }
         
         
     }
