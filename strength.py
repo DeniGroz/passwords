@@ -3,17 +3,13 @@ from collections import Counter
 import random
 
 #Most common structure: U1L5S1D1 (282)
-'''Password crackers will work from the most common password structure to the least common. 
-   As a result, your strengthening approach should work in the opposite direction,
-   creating structures that are less frequent.
-   '''
-structure_list = []
+'''TO RUN: python3 strength.py <path-to-rockyou.txt.6.1.a>
+   after code will export rockyou.txt.6.1.a.strength 
+'''
 
 def process(path):
     with open(path, 'r') as p:
         passwords = p.read().splitlines()
-    #print(len(passwords))
-    #altered = list(map(strength, passwords)) #returns a list of values with altered password
     altered = [strength(pwd) for pwd in passwords]
 
     path_name = path.split('/')
@@ -30,7 +26,6 @@ def strength(pwd):
     #print(pwd)
     pass_list = list(pwd) 
     randlist = [1, 2, 5]
-    #freq = sorted(Counter(pwd).items(), key=lambda x: x[1], reverse=True) #Counter finds the freq and stores them in a dictionary i.e {'a':3, 'j: 1} 
     if len(pass_list) == 6: #S1U1L1U1D2
         pass_list[2] = random.choice(Q)
         pass_list[5] = random.choice(Q)
