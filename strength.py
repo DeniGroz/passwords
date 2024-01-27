@@ -49,7 +49,7 @@ def strength(pwd):
     elif len(pass_list) > 8: # U6S1L3D4
         pass_list[len(pass_list)-2] = random.choice(Q)
         pass_list[1] = random.choice(Q)
-        pass_list[random.randint(2, len(pass_list)-1)] = random.choice(Q)
+        pass_list[random.randint(3, len(pass_list)-1)] = random.choice(Q)
         #pass_list[random.randint(0, len(pass_list)-1)] = random.choice(Special)
     #print(''.join(pass_list))
     #exit(1)
