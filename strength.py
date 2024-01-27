@@ -1,11 +1,5 @@
 import sys
-from collections import Counter
 import random
-
-#Most common structure: U1L5S1D1 (282)
-'''TO RUN: python3 strength.py <path-to-rockyou.txt.6.1.a>
-   after code will export rockyou.txt.6.1.a.strength 
-'''
 
 def process(path):
     with open(path, 'r') as p:
@@ -23,9 +17,8 @@ def strength(pwd):
     Special = '!@#$%^&*()_+' # S - Special
     Q = 'Qq'
     Num = '0123456789' # D - number
-    #print(pwd)
     pass_list = list(pwd) 
-    randlist = [1, 2, 5]
+
     if len(pass_list) == 6: #S1U1L1U1D2
         pass_list[2] = random.choice(Q)
         pass_list[5] = random.choice(Q)
@@ -38,14 +31,12 @@ def strength(pwd):
         #if random.randint(0,1):
             
        #pass_list[6] = random.choice(Q)
-        
     elif len(pass_list) == 8:# U1L1S1L1D1L3, L3U1L1S1L1D1, U1S1L1D1L4
         pass_list[1] = random.choice(Q)
         pass_list[3] = random.choice(Q)
         pass_list[5] = random.choice(Q)
         #if random.randint(0,1):
-            #pass_list[7] = random.choice(Q)
-            
+            #pass_list[7] = random.choice(Q)         
     elif len(pass_list) > 8: # U6S1L3D4
         pass_list[len(pass_list)-2] = random.choice(Q)
         pass_list[1] = random.choice(Q)
