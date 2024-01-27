@@ -13,7 +13,7 @@ def process(path):
     altered = [strength(pwd) for pwd in passwords]
 
     path_name = path.split('/')
-    with open(f'/home/csmajs/drios027/password_cs165/{path_name[4]}.strength','w')as f:
+    with open(f'{path_name[4]}.strength','w')as f:
         for line in altered:
             f.write(f"{line}\n")
 
